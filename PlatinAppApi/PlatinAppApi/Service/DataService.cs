@@ -5,6 +5,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using PlatinAppApi.Models;
+using System.IO;
+using System.Linq;
+using Newtonsoft.Json.Linq;
+using static PlatinAppApi.Models.Product;
+using System.Runtime.Serialization.Json;
 
 namespace PlatinAppApi.Service
 {
@@ -12,13 +17,13 @@ namespace PlatinAppApi.Service
     {
         HttpClient client = new HttpClient();
 
-        public async Task<List<PrdCab>> GetProdutosAsync()
+        public async Task<List<Product>> GetProdutosAsync()
         {
             try
             {
-                string url = "http://localhost:49807/api/prdcab/listar";
+                string url = "http://platinwebapi.somee.com/api/product/RetornaTodosProdutos";
                 var response = await client.GetStringAsync(url);
-                var produtos = JsonConvert.DeserializeObject<List<PrdCab>>(response);
+                var produtos = JsonConvert.DeserializeObject<List<Product>>(response);
                 return produtos;
             }
             catch (Exception ex)
@@ -27,15 +32,15 @@ namespace PlatinAppApi.Service
             }
         }
 
-        public async Task AddProdutoAsync(PrdCab produto)
+        public async Task AddProdutoAsync(Product produto)
         {
             try
             {
                 
 
-                string url = "http://localhost:49807/api/prdcab/inserir/{0}";
+                string url = "http://localhost:49807/api/product/inserir/{0}";
 
-                var uri = new Uri(string.Format(url, produto.Ide));
+                var uri = new Uri(string.Format(url, produto.id));
 
                 var data = JsonConvert.SerializeObject(produto);
                 var content = new StringContent(data, Encoding.UTF8, "application/json");
@@ -54,10 +59,10 @@ namespace PlatinAppApi.Service
             }
         }
 
-        public async Task UpdateProdutoAsync(PrdCab produto)
+        public async Task UpdateProdutoAsync(Product produto)
         {
             string url = "http://localhost:49807/api/prdcab/editar/{0}";
-            var uri = new Uri(string.Format(url, produto.Ide));
+            var uri = new Uri(string.Format(url, produto.id));
 
             var data = JsonConvert.SerializeObject(produto);
             var content = new StringContent(data, Encoding.UTF8, "application/json");
@@ -73,14 +78,14 @@ namespace PlatinAppApi.Service
 
         public async Task DeletaProdutoPorIndiceAsync(int indice)
         {
-            string url = "http://localhost:49807/api/prdcab/excluir/{0}";
+            string url = "http://localhost:49807/api/product/excluir/{0}";
             await client.DeleteAsync(string.Concat(url, indice));
         }
 
-        public async Task DeletaProdutoAsync(PrdCab produto)
+        public async Task DeletaProdutoAsync(Product produto)
         {
-            string url = "http://localhost:49807/api/prdcab/excluir/{0}";
-            var uri = new Uri(string.Format(url, produto.Ide));
+            string url = "http://localhost:49807/api/product/excluir/{0}";
+            var uri = new Uri(string.Format(url, produto.id));
             await client.DeleteAsync(uri);
         }
     }

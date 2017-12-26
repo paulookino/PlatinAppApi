@@ -9,7 +9,7 @@
             <Label Text="Adicionar/Atualizar Produto" TextColor="Green" />
         </StackLayout>
         <StackLayout Padding="10,0,10,0">
-            <Entry x:Name="txtDes" Placeholder="Nome do produto" HorizontalOptions="Start" VerticalOptions="StartAndExpand" HeightRequest="30" WidthRequest="300" FontSize="Small"/>
+            <Entry x:Name="txtName" Placeholder="Nome do produto" HorizontalOptions="Start" VerticalOptions="StartAndExpand" HeightRequest="30" WidthRequest="300" FontSize="Small"/>
             <!--<Entry x:Name="txtCategoria" Placeholder="Categoria do produto" HorizontalOptions="Start" VerticalOptions="StartAndExpand" HeightRequest="30" WidthRequest="300" FontSize="Small" />
             <Entry x:Name="txtPreco" Placeholder="Preço do produto" HorizontalOptions="Start" VerticalOptions="StartAndExpand" HeightRequest="30" WidthRequest="300" FontSize="Small" />-->
             <Button HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" HeightRequest="40" Text="Adicionar Produto" Clicked="btnAdicionar_Clicked" FontSize="Small"/>
@@ -24,7 +24,7 @@
                                 <MenuItem Clicked="OnDeletar" CommandParameter="{Binding .}" Text="Deletar" IsDestructive="True" />
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10,10" Orientation="Horizontal">
-                                <Label Text="{Binding Des}" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding name}" HorizontalOptions="StartAndExpand"/>
                                 <!--<Label Text="{Binding Categoria}" TextColor="Blue" HorizontalOptions="Center"/>
                                 <Label Text="{Binding Preco}" HorizontalOptions="End"/>-->
                             </StackLayout>
