@@ -1,15 +1,10 @@
 ﻿using Newtonsoft.Json;
+using PlatinAppApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using PlatinAppApi.Models;
-using System.IO;
-using System.Linq;
-using Newtonsoft.Json.Linq;
-using static PlatinAppApi.Models.Product;
-using System.Runtime.Serialization.Json;
 
 namespace PlatinAppApi.Service
 {
@@ -36,9 +31,9 @@ namespace PlatinAppApi.Service
         {
             try
             {
-                
+                PopulaProduto(produto);
 
-                string url = "http://localhost:49807/api/product/inserir/{0}";
+                string url = "http://platinwebapi.somee.com/api/product/inserir/{0}";
 
                 var uri = new Uri(string.Format(url, produto.id));
 
@@ -61,7 +56,7 @@ namespace PlatinAppApi.Service
 
         public async Task UpdateProdutoAsync(Product produto)
         {
-            string url = "http://localhost:49807/api/prdcab/editar/{0}";
+            string url = "http://platinwebapi.somee.com/api/product/editar/{0}";
             var uri = new Uri(string.Format(url, produto.id));
 
             var data = JsonConvert.SerializeObject(produto);
@@ -78,15 +73,111 @@ namespace PlatinAppApi.Service
 
         public async Task DeletaProdutoPorIndiceAsync(int indice)
         {
-            string url = "http://localhost:49807/api/product/excluir/{0}";
+            string url = "http://platinwebapi.somee.com/api/product/excluir/{0}";
             await client.DeleteAsync(string.Concat(url, indice));
         }
 
         public async Task DeletaProdutoAsync(Product produto)
         {
-            string url = "http://localhost:49807/api/product/excluir/{0}";
+            string url = "http://platinwebapi.somee.com/api/product/excluir/{0}";
             var uri = new Uri(string.Format(url, produto.id));
             await client.DeleteAsync(uri);
         }
+
+
+        public Product PopulaProduto(Product product)
+        {
+
+            product.productTypeId = 13;
+            product.parentGroupedProductId = 13;
+            product.visibleIndividually = true;
+            product.shortDescription = "Teste";
+            product.fullDescription = "Teste";
+            product.productTemplateId = 13;
+            product.vendorId = 13;
+            product.showOnHomePage = true;
+            product.allowCustomerReviews = true;
+            product.approvedRatingSum = 13;
+            product.notApprovedRatingSum = 13;
+            product.approvedTotalReviews = 13;
+            product.notApprovedTotalReviews = 13;
+            product.subjectToAcl = false;
+            product.limitedToStores = true;
+            product.sku = "Teste";
+            product.isGiftCard = true;
+            product.giftCardTypeId = 13;
+            product.requireOtherProducts = true;
+            product.automaticallyAddRequiredProducts = true;
+            product.isDownload = true;
+            product.downloadId = 13;
+            product.unlimitedDownloads = true;
+            product.maxNumberOfDownloads = 13;
+            product.downloadActivationTypeId = 13;
+            product.hasSampleDownload = true;
+            product.sampleDownloadId = 13;
+            product.hasUserAgreement = true;
+            product.isRecurring = true;
+            product.recurringCycleLength = 13;
+            product.recurringCyclePeriodId = 13;
+            product.recurringTotalCycles = 13;
+            product.isRental = true;
+            product.rentalPriceLength = 13;
+            product.rentalPricePeriodId = 13;
+            product.isShipEnabled = true;
+            product.isFreeShipping = true;
+            product.shipSeparately = true;
+            product.additionalShippingCharge = 13.0;
+            product.deliveryDateId = 13;
+            product.isTaxExempt = true;
+            product.taxCategoryId = 13;
+            product.isTelecommunicationsOrBroadcastingOrElectronicServices = true;
+            product.manageInventoryMethodId = 13;
+            product.productAvailabilityRangeId = 13;
+            product.useMultipleWarehouses = true;
+            product.warehouseId = 13;
+            product.stockQuantity = 13;
+            product.displayStockAvailability = true;
+            product.displayStockQuantity = true;
+            product.minStockQuantity = 13;
+            product.lowStockActivityId = 13;
+            product.notifyAdminForQuantityBelow = 13;
+            product.backorderModeId = 13;
+            product.allowBackInStockSubscriptions = true;
+            product.orderMinimumQuantity = 13;
+            product.orderMaximumQuantity = 13;
+            product.allowAddingOnlyExistingAttributeCombinations = true;
+            product.notReturnable = true;
+            product.disableBuyButton = true;
+            product.disableWishlistButton = true;
+            product.availableForPreOrder = true;
+            product.callForPrice = true;
+            product.price = 13.0;
+            product.oldPrice = 13.0;
+            product.productCost = 13.0;
+            product.customerEntersPrice = true;
+            product.minimumCustomerEnteredPrice = 13.0;
+            product.maximumCustomerEnteredPrice = 13.0;
+            product.basepriceEnabled = true;
+            product.basepriceAmount = 13.0;
+            product.basepriceUnitId = 13;
+            product.basepriceBaseAmount = 13.0;
+            product.basepriceBaseUnitId = 13;
+            product.markAsNew = true;
+            product.hasTierPrices = true;
+            product.hasDiscountsApplied = true;
+            product.weight = 13.0;
+            product.length = 13.0;
+            product.width = 13.0;
+            product.height = 13.0;
+            product.displayOrder = 13;
+            product.published = true;
+            product.deleted = true;
+            product.createdOnUtc = DateTime.Now;
+            product.updatedOnUtc = DateTime.Now;
+
+            return product;
+        }
+
+
     }
 }
