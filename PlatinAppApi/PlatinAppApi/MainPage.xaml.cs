@@ -136,6 +136,12 @@ namespace PlatinAppApi
         }
 
 
+        async void btnCapturarPage_Clicked(object sender, EventArgs args)
+        {
+           await Navigation.PushModalAsync(new InventarioPage());
+        }
+
+
         List<Microcharts.Entry> lista = new List<Microcharts.Entry>
         {
             new Microcharts.Entry(200)

@@ -13,8 +13,10 @@ namespace PlatinAppApi
 		{
 			InitializeComponent();
 
-			MainPage = new PlatinAppApi.MainPage();
-		}
+			//MainPage = new PlatinAppApi.MainPage();
+            MainPage = new NavigationPage(new PlatinAppApi.InventarioPage());
+            //MainPage = new NavigationPage(new PlatinAppApi.MainPage());
+        }
 
 		protected override void OnStart ()
 		{

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatinAppApi.iOS", "PlatinA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatinAppApi.UWP", "PlatinAppApi\PlatinAppApi.UWP\PlatinAppApi.UWP.csproj", "{8FC114BC-EA2D-49AE-887E-1C7CD474AC7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatinAppApi", "PlatinAppApi\PlatinAppApi\PlatinAppApi.csproj", "{82AB5989-C1A4-47E6-AAB4-441E9F717A81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatinAppApi", "PlatinAppApi\PlatinAppApi\PlatinAppApi.csproj", "{82AB5989-C1A4-47E6-AAB4-441E9F717A81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

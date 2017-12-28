@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PlatinAppApi"
+             x:Class="PlatinAppApi.InventarioPage" Title="Codigos Barras">
+
+    <StackLayout>
+        
+        <Button Text="Captura QRCode" Clicked="Button_Clicked" />
+        <Button Text="Codigos" Clicked="Button_Clicked_1" />
+
+        <Button Text="Cadastrar Produtos" Clicked="btnVoltarMainPage_Clicked" />
+        <Label x:Name="lblCodigo"/>
+    </StackLayout>
+
+</ContentPage>

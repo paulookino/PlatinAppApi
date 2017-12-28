@@ -178,6 +178,46 @@ namespace PlatinAppApi.Service
             return product;
         }
 
+        public async Task AddInventarioAsync(Inventario inventario)
+        {
+            try
+            {
 
+                string url = "http://platinwebapi.somee.com/api/inventario/inserir/{0}";
+
+                var uri = new Uri(string.Format(url, inventario.InvId));
+
+                var data = JsonConvert.SerializeObject(inventario);
+                var content = new StringContent(data, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+
+                response = await client.PostAsync(uri, content);
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception("Erro ao incluir inventário");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public async Task<List<Inventario>> GetInventarioAsync()
+        {
+            try
+            {
+                string url = "http://platinwebapi.somee.com/api/inventario/RetornaTodosCodigos";
+                var response = await client.GetStringAsync(url);
+                var inventario = JsonConvert.DeserializeObject<List<Inventario>>(response);
+                return inventario;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

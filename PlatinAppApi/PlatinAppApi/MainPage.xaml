@@ -8,6 +8,7 @@
     <StackLayout Orientation="Vertical">
         <StackLayout Padding="5,5,0,0">
             <Label Text="Adicionar/Atualizar Produto" TextColor="Green" />
+            <Button Text="Capturar Código de Barras" BorderWidth="0" Clicked="btnCapturarPage_Clicked" />
         </StackLayout>
         <StackLayout Padding="10,0,10,0">
             <Entry x:Name="txtName" Placeholder="Nome do produto" HorizontalOptions="Start" VerticalOptions="StartAndExpand" HeightRequest="30" WidthRequest="300" FontSize="Small"/>
