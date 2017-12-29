@@ -84,7 +84,6 @@ namespace PlatinAppApi.Service
             await client.DeleteAsync(uri);
         }
 
-
         public Product PopulaProduto(Product product)
         {
 
@@ -204,7 +203,6 @@ namespace PlatinAppApi.Service
             }
         }
 
-
         public async Task<List<Inventario>> GetInventarioAsync()
         {
             try
@@ -218,6 +216,13 @@ namespace PlatinAppApi.Service
             {
                 throw ex;
             }
+        }
+
+        public async Task DeletaInventarioAsync(Inventario inventario)
+        {
+            string url = "http://platinwebapi.somee.com/api/inventario/excluir/{0}";
+            var uri = new Uri(string.Format(url, inventario.InvId));
+            await client.DeleteAsync(uri);
         }
     }
 }

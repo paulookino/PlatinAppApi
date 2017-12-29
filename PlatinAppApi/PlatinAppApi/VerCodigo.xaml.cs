@@ -76,5 +76,21 @@ namespace PlatinAppApi
         {
             await Navigation.PushModalAsync(new InventarioPage());
         }
+
+        private async void OnDeletar(object sender, EventArgs e)
+        {
+            try
+            {
+                var mi = ((MenuItem)sender);
+                Inventario codigoDeletar = (Inventario)mi.CommandParameter;
+                await dataService.DeletaInventarioAsync(codigoDeletar);
+                AtualizaCodigos();
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Erro", ex.Message, "OK");
+            }
+        }
+
     }
 }
