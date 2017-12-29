@@ -10,6 +10,7 @@
         <Button Text="Codigos" Clicked="Button_Clicked_1" />
 
         <Button Text="Cadastrar Produtos" Clicked="btnVoltarMainPage_Clicked" />
+        <Button Text="Gráfico" Clicked="btnGraficoPage_Clicked" />
         <Label x:Name="lblCodigo"/>
     </StackLayout>
 

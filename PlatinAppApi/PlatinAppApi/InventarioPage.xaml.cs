@@ -109,10 +109,15 @@ namespace PlatinAppApi
 
         }
 
-
         async void btnVoltarMainPage_Clicked(object sender, EventArgs args)
         {
           await  Navigation.PushModalAsync(new MainPage());
         }
+
+        async void btnGraficoPage_Clicked(object sender, EventArgs args)
+        {
+            await Navigation.PushModalAsync(new GraficoPage());
+        }
+
     }
 }
