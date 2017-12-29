@@ -48,54 +48,61 @@ namespace PlatinAppApi
         {
             scanPage = await Util.CapturarCodigoAsync(scanPage, "Escanear Codigo", ZXing.BarcodeFormat.EAN_13);// QR_CODE);
 
-            if (!iniCapt)
+            try
             {
-                scanPage.OnScanResult += (resut) =>
+                if (!iniCapt)
                 {
-                    Device.BeginInvokeOnMainThread(async () =>
+                    scanPage.OnScanResult += (resut) =>
                     {
-                        try
+                        Device.BeginInvokeOnMainThread(async () =>
                         {
-                            if (exibindoMsg)
+                            try
                             {
-                                return;
-                            }
+                                if (exibindoMsg)
+                                {
+                                    return;
+                                }
 
-                            scanPage.IsScanning = false;
+                                scanPage.IsScanning = false;
 
-                            if (!string.IsNullOrEmpty(CodigoCapturado))
-                            {
-                                return;
-                            }
+                                if (!string.IsNullOrEmpty(CodigoCapturado))
+                                {
+                                    return;
+                                }
 
-                            Util.Vibrar();
+                                Util.Vibrar();
 
-                            CodigoCapturado = resut.Text;
-                            await Navigation.PopAsync();
+                                CodigoCapturado = resut.Text;
+                                await Navigation.PopModalAsync();
 
 
-                            Inventario inventario = new Inventario
-                            {
-                                InvCodigo = CodigoCapturado
+                                Inventario inventario = new Inventario
+                                {
+                                    InvCodigo = CodigoCapturado
                                 //Categoria = txtCategoria.Text.Trim(),
                                 //Preco = Convert.ToDecimal(txtPreco.Text)
                             };
 
-                            await dataService.AddInventarioAsync(inventario);
-                        }
-                        catch (Exception ex)
-                        {
-                            exibindoMsg = true;
-                            await this.DisplayAlert("Atenção", "Codigo invalido tente novamente !", "ok");
-                            exibindoMsg = false;
-                        }
+                                await dataService.AddInventarioAsync(inventario);
+                            }
+                            catch (Exception ex)
+                            {
+                                exibindoMsg = true;
+                                await this.DisplayAlert("Atenção", "Codigo invalido tente novamente !", "ok");
+                                exibindoMsg = false;
+                            }
 
-                    });
-                };
-                iniCapt = true;
+                        });
+                    };
+                    iniCapt = true;
+                }
+                CodigoCapturado = "";
+                await Navigation.PushModalAsync(scanPage);
             }
-            CodigoCapturado = "";
-            await Navigation.PushAsync(scanPage);
+            catch(Exception e)
+            {
+
+            }
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
