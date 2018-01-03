@@ -35,6 +35,9 @@
     <EmbeddedResource Update="InventarioPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="TodosCodigos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="VerCodigo.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

@@ -115,7 +115,12 @@ namespace PlatinAppApi
             await Navigation.PushModalAsync(new VerCodigo());
 
         }
+        async void btnTodosCodigos_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new TodosCodigos());
 
+        }
+        
         async void btnVoltarMainPage_Clicked(object sender, EventArgs args)
         {
           await  Navigation.PushModalAsync(new MainPage());

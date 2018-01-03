@@ -7,10 +7,11 @@
     <StackLayout>
         
         <Button Text="Captura QRCode" Clicked="Button_Clicked" />
-        <Button Text="Codigos" Clicked="Button_Clicked_1" />
-
+        <Button Text="Códigos" Clicked="Button_Clicked_1" />
+        <Button Text="Todos Códigos" Clicked="btnTodosCodigos_Clicked" />
         <Button Text="Cadastrar Produtos" Clicked="btnVoltarMainPage_Clicked" />
         <Button Text="Gráfico" Clicked="btnGraficoPage_Clicked" />
+        
         <Label x:Name="lblCodigo"/>
     </StackLayout>
 

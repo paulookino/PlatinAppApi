@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PlatinAppApi"
+             x:Class="PlatinAppApi.TodosCodigos">
+    <ContentPage.Content>
+        <StackLayout x:Name="meusCodigos">
+            <Button Text="Voltar" Clicked="btnVoltarInventarioPage_Clicked" />
+
+
+            <StackLayout Orientation="Vertical" Padding="10,5,10,0">
+                <ListView x:Name="listaCodigos" ItemSelected="listaCodigos_ItemSelected" BackgroundColor="Aqua" SeparatorColor="Blue">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <!--<MenuItem Clicked="OnAtualizar" CommandParameter="{Binding .}" Text="Atualizar" />-->
+                                    <MenuItem Clicked="OnDeletar" CommandParameter="{Binding .}" Text="Deletar" IsDestructive="True" />
+                                </ViewCell.ContextActions>
+                                <StackLayout Padding="10,10" Orientation="Horizontal">
+                                    <Label Text="{Binding InvCodigo}" HorizontalOptions="StartAndExpand"/>
+                                    <!--<Label Text="{Binding ContagemCodigo}" TextColor="Blue" HorizontalOptions="Center"/>-->
+                                    <!--<Label Text="{Binding Preco}" HorizontalOptions="End"/>-->
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

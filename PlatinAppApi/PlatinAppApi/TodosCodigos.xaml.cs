@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZXing.Net.Mobile.Forms;
@@ -13,12 +12,12 @@ using ZXing.Net.Mobile.Forms;
 namespace PlatinAppApi
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VerCodigo : ContentPage
+    public partial class TodosCodigos : ContentPage
     {
         List<Inventario> codigos;
         DataService dataService;
 
-        public VerCodigo()
+        public TodosCodigos()
         {
             InitializeComponent();
             dataService = new DataService();
@@ -68,7 +67,7 @@ namespace PlatinAppApi
         }
         async void AtualizaCodigos()
         {
-            codigos = await dataService.GetInventarioContagemAsync();
+            codigos = await dataService.GetInventarioAsync();
             listaCodigos.ItemsSource = codigos.OrderBy(item => item.InvCodigo).ToList();
         }
 

@@ -203,6 +203,21 @@ namespace PlatinAppApi.Service
             }
         }
 
+        public async Task<List<Inventario>> GetInventarioContagemAsync()
+        {
+            try
+            {
+                string url = "http://platinwebapi.somee.com/api/inventario/RetornaTodosCodigosComContagem";
+                var response = await client.GetStringAsync(url);
+                var inventario = JsonConvert.DeserializeObject<List<Inventario>>(response);
+                return inventario;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<List<Inventario>> GetInventarioAsync()
         {
             try

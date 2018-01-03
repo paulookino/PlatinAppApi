@@ -13,14 +13,14 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <ViewCell.ContextActions>
-                                <!--<MenuItem Clicked="OnAtualizar" CommandParameter="{Binding .}" Text="Atualizar" />-->
+                            <!--<ViewCell.ContextActions>
+                                <MenuItem Clicked="OnAtualizar" CommandParameter="{Binding .}" Text="Atualizar" />
                                 <MenuItem Clicked="OnDeletar" CommandParameter="{Binding .}" Text="Deletar" IsDestructive="True" />
-                            </ViewCell.ContextActions>
+                            </ViewCell.ContextActions>-->
                             <StackLayout Padding="10,10" Orientation="Horizontal">
                                 <Label Text="{Binding InvCodigo}" HorizontalOptions="StartAndExpand"/>
-                                <!--<Label Text="{Binding Categoria}" TextColor="Blue" HorizontalOptions="Center"/>
-                                <Label Text="{Binding Preco}" HorizontalOptions="End"/>-->
+                                <Label Text="{Binding ContagemCodigo}" TextColor="Blue" HorizontalOptions="Center"/>
+                                <!--<Label Text="{Binding Preco}" HorizontalOptions="End"/>-->
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
