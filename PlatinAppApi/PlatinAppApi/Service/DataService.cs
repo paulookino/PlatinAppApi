@@ -222,7 +222,8 @@ namespace PlatinAppApi.Service
         {
             try
             {
-                string url = "http://platinwebapi.somee.com/api/inventario/RetornaTodosCodigos";
+                //string url = "http://platinwebapi.somee.com/api/inventario/RetornaTodosCodigos";
+                string url = "http://platinwebapi.somee.com/api/inventario/RetornaInventarioProduto";
                 var response = await client.GetStringAsync(url);
                 var inventario = JsonConvert.DeserializeObject<List<Inventario>>(response);
                 return inventario;

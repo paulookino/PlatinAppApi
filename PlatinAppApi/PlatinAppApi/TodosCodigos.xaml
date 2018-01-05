@@ -19,7 +19,7 @@
                                 </ViewCell.ContextActions>
                                 <StackLayout Padding="10,10" Orientation="Horizontal">
                                     <Label Text="{Binding InvCodigo}" HorizontalOptions="StartAndExpand"/>
-                                    <!--<Label Text="{Binding ContagemCodigo}" TextColor="Blue" HorizontalOptions="Center"/>-->
+                                    <Label Text="{Binding ProNome}" TextColor="Blue" HorizontalOptions="Center"/>
                                     <!--<Label Text="{Binding Preco}" HorizontalOptions="End"/>-->
                                 </StackLayout>
                             </ViewCell>
